@@ -3,31 +3,48 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './components/app/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
-import {ApiClientService} from './services/api-client.service';
-import {HttpClientModule} from '@angular/common/http';
+import { MenuService } from './services/menu.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AuthService } from './services/auth.service';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccountService } from './services/account.service';
+import { AuthInterceptor } from './interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    MenuItemComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
     LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    AppRoutingModule, HttpClientModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgbModule,
+    AngularFontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ApiClientService],
+  providers: [
+    MenuService,
+    AuthService,
+    AccountService,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi   : true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,27 @@
+<form *ngIf="!(isLoggedIn | async)" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label>
+      Username:
+      <input type="text" formControlName="username">
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label>
+      Password:
+      <input type="text" formControlName="password">
+    </label>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid">Submit</button>
+  </div>
+
+</form>
+
+
+<button *ngIf="(isLoggedIn | async)" class="btn btn-danger" (click)="authService.logout()">
+  Logout
+</button>
+

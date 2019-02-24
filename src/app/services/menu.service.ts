@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 @Injectable()
-export class ApiClientService {
+export class MenuService {
 
   constructor(private http: HttpClient) {}
 

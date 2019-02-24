@@ -1,0 +1,32 @@
+.menu-item {
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+.menu-item-details {
+  float: left;
+}
+
+.menu-item-name {
+  font-size: 1.4em;
+  font-weight: 500;
+}
+
+.menu-item-description {
+
+}
+
+.menu-item-ordering-details {
+  float: right;
+  display: block;
+}
+
+.menu-item-cost {
+  display: inline-block;
+  padding-right: 1em;
+}
+
+.menu-item-add-button {
+  display: inline-block;
+}

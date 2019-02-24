@@ -1,0 +1,10 @@
+<div class="menu-item">
+  <div class="menu-item-details">
+    <div class="menu-item-name">{{menuItem.name}}</div>
+    <div class="menu-item-description">{{menuItem.description}}</div>
+  </div>
+  <div class="menu-item-ordering-details">
+    <div class="menu-item-cost">{{menuItem.cost | currency: '£'}}</div>
+    <div class="menu-item-add-button"><fa [name]="'plus'"[size]="'2x'"></fa></div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiClientService} from '../../services/api-client.service';
+import {MenuService} from '../../services/menu.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import {ApiClientService} from '../../services/api-client.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private apiClient: ApiClientService) { }
+  constructor(private apiClient: MenuService) { }
 
   ngOnInit() {
     this.apiClient.getFullMenu(1).subscribe(
