@@ -10,7 +10,7 @@ export class AuthService {
 
   static KEY = 'jwt';
 
-  isLoginSubject: BehaviorSubject<boolean>
+  isLoginSubject: BehaviorSubject<boolean>;
   apiPath: string;
 
   constructor(private http: HttpClient) {

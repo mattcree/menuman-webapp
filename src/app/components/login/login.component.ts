@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { flatMap } from 'rxjs/operators';
+import {delay, flatMap, tap} from 'rxjs/operators';
 import { AccountService } from '../../services/account.service';
 import { Observable } from 'rxjs';
+import {Router} from '@angular/router';
+import {StatusMessage} from '../../models/status-message';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +19,11 @@ export class LoginComponent {
     username: new FormControl(''),
     password: new FormControl(''),
   });
+  status: StatusMessage;
 
   constructor(private authService: AuthService,
-              private accountService: AccountService) {
+              private router: Router) {
+    this.authService.logout();
     this.isLoggedIn = this.authService.isLoggedIn();
   }
 
@@ -28,12 +32,23 @@ export class LoginComponent {
       username: this.loginForm.get('username').value,
       password: this.loginForm.get('password').value
     }).pipe(
-      flatMap((thing) => {
-        return this.accountService.getAccount(this.loginForm.get('username').value)
-      })
+      tap(() => this.status = {
+        message: 'Successfully logged in',
+        isError: false
+      }),
+      delay(1000),
+      tap(() => this.status.message += '.'),
+      delay(1000),
+      tap(() => this.status.message += '.'),
+      delay(1000),
+      tap(() => this.status.message += '.'),
+      delay(1000)
     ).subscribe(
-      success => console.log(success),
-      error => console.log(error)
+      () => this.router.navigate(['home']),
+      ()=> this.status = {
+        message: 'Error logging in!',
+        isError: true
+      }
     );
   }
 

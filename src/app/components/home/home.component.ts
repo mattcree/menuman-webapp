@@ -8,13 +8,10 @@ import {MenuService} from '../../services/menu.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private apiClient: MenuService) { }
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.apiClient.getFullMenu(1).subscribe(
-      yay => console.log(yay),
-      uhoh => console.log(uhoh)
-    )
+
   }
 
 }

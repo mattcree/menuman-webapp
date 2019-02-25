@@ -1,27 +1,12 @@
-<form *ngIf="!(isLoggedIn | async)" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
+<div *ngIf="status" class="text-center" [ngClass]="{'bg-success': !status.isError, 'bg-danger': status.isError}">
+  <p>{{status.message}}</p>
+</div>
+<form *ngIf="!(isLoggedIn | async)" [formGroup]="loginForm" class="text-center form-signin" (ngSubmit)="onSubmit()">
+  <h1 class="h3 mb-3 font-weight-normal">Login</h1>
   <div class="form-group">
-    <label>
-      Username:
-      <input type="text" formControlName="username">
-    </label>
-  </div>
-
-  <div class="form-group">
-    <label>
-      Password:
-      <input type="text" formControlName="password">
-    </label>
-  </div>
-
-  <div class="form-group">
+    <input class="form-control" type="username" placeholder="Username" formControlName="username" required autofocus>
+    <input class="form-control" type="password" placeholder="Password" formControlName="password">
     <button class="btn btn-success" type="submit" [disabled]="!loginForm.valid">Submit</button>
   </div>
-
 </form>
-
-
-<button *ngIf="(isLoggedIn | async)" class="btn btn-danger" (click)="authService.logout()">
-  Logout
-</button>
 
