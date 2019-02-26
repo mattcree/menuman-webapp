@@ -32,7 +32,8 @@
     "font-awesome": "^4.7.0",
     "angular-font-awesome": "^3.1.2",
     "@auth0/angular-jwt": "^2.1.0",
-    "typescript": "~3.2.2"
+    "typescript": "~3.2.2",
+    "express": "^4.16.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",
