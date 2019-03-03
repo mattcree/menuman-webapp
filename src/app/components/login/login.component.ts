@@ -45,8 +45,8 @@ export class LoginComponent {
       delay(1000)
     ).subscribe(
       () => this.router.navigate(['home']),
-      () => this.status = {
-        message: 'Error logging in!',
+      (error) => this.status = {
+        message: error.error.status === 403 ? 'Username or password is wrong' : error.error.message,
         isError: true
       }
     );

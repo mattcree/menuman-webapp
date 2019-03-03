@@ -1,5 +1,5 @@
-<div *ngIf="status" class="text-center" [ngClass]="{'bg-success': !status.isError, 'bg-danger': status.isError}">
-  <p>{{status.message}}</p>
+<div *ngIf="status" class="text-center alert" [ngClass]="{'alert-success': !status.isError, 'alert-danger': status.isError}">
+  {{status.message}}
 </div>
 <form *ngIf="!(isLoggedIn | async)" [formGroup]="loginForm" class="text-center form-signin" (ngSubmit)="onSubmit()">
   <h1 class="h3 mb-3 font-weight-normal">Login</h1>

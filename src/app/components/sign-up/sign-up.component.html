@@ -1,10 +1,32 @@
 <form [formGroup]="signUpForm" class="text-center form-signup" (ngSubmit)="onSubmit()">
-  <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-  <div class="form-group">
+  <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+  <div *ngIf="status" class="alert" [ngClass]="{'alert-danger': status.isError, 'alert-success': !status.isError}">
+    {{ status.message }}
+  </div>
+    <div class="form-group">
     <input class="form-control" type="username" placeholder="Username" formControlName="username" required autofocus>
     <input class="form-control" type="password" placeholder="Password" formControlName="password">
     <input class="form-control" type="address" placeholder="Address" formControlName="address">
     <button class="btn btn-success" type="submit" [disabled]="!signUpForm.valid">Submit</button>
   </div>
 </form>
+
+<div *ngIf="signUpForm.invalid && (signUpForm.dirty || signUpForm.touched)"
+     class="alert alert-danger">
+
+  <div *ngIf="username.errors?.pattern">
+    Username should have only alphabet characters and underscores.
+  </div>
+  <div *ngIf="username.errors?.minlength">
+    Username must be at least {{ minimumFormFieldLength }} characters long.
+  </div>
+  <div *ngIf="password.invalid">
+    Password must be at least {{ minimumFormFieldLength }} characters long.
+  </div>
+  <div *ngIf="address.invalid">
+    Address must be at least {{ minimumFormFieldLength }} characters long.
+  </div>
+
+
+</div>
 
