@@ -1,0 +1,10 @@
+<form [formGroup]="signUpForm" class="text-center form-signup" (ngSubmit)="onSubmit()">
+  <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+  <div class="form-group">
+    <input class="form-control" type="username" placeholder="Username" formControlName="username" required autofocus>
+    <input class="form-control" type="password" placeholder="Password" formControlName="password">
+    <input class="form-control" type="address" placeholder="Address" formControlName="address">
+    <button class="btn btn-success" type="submit" [disabled]="!signUpForm.valid">Submit</button>
+  </div>
+</form>
+

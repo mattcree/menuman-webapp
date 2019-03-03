@@ -45,7 +45,7 @@ export class LoginComponent {
       delay(1000)
     ).subscribe(
       () => this.router.navigate(['home']),
-      ()=> this.status = {
+      () => this.status = {
         message: 'Error logging in!',
         isError: true
       }
