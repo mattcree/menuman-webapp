@@ -11,6 +11,9 @@
       <li *ngIf="!(isLoggedIn | async)" class="nav-item">
         <a class="nav-link" [routerLink]="['sign-up']" routerLinkActive="active">Sign Up</a>
       </li>
+      <li *ngIf="(isLoggedInAdmin | async)" class="nav-item">
+        <a class="nav-link" [routerLink]="['menu-list']" routerLinkActive="active">Menu List</a>
+      </li>
       <li>
         <div *ngIf="isLoggedIn | async; else showLoginButton">
           <a class="nav-link" [routerLink]="['login']" routerLinkActive="active">Logout</a>
@@ -22,6 +25,6 @@
     </ul>
   </div>
 </nav>
-<div class="container">
+<div id="main-container" class="container">
   <router-outlet></router-outlet>
 </div>

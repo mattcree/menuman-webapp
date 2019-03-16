@@ -1,0 +1,20 @@
+<h3 id="menu-list-header" class="text-center">Manage Menus</h3>
+<div id="menu-add-button" class="text-center offset-10 col-2">
+  <button class="btn btn-primary">
+    <span class="fa fa-plus"> </span>
+    Add
+  </button>
+</div>
+<div id="menu-list" class="bg-light">
+  <div *ngFor="let menu of menus" class="row">
+    <div class="col-10">
+      {{ menu.name }}
+    </div>
+    <div class="col-2 text-center">
+      <button class="btn btn-info btn-sm">
+        <span class="fa fa-edit"></span>
+        Edit
+      </button>
+    </div>
+  </div>
+</div>

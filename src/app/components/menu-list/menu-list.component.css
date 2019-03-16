@@ -1,0 +1,16 @@
+#menu-list-header {
+  padding-bottom: 25px;
+}
+
+#menu-add-button {
+  margin-bottom: 10px;
+}
+
+#menu-list {
+  padding: 20px;
+}
+
+#menu-list .row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

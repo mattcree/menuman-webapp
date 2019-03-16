@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountService } from './services/account.service';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { MenuListComponent } from './components/menu-list/menu-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     HomeComponent,
     MenuItemComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    MenuListComponent
   ],
   imports: [
     BrowserModule,
