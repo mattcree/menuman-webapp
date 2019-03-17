@@ -1,6 +1,6 @@
 <h3 id="menu-list-header" class="text-center">Manage Menus</h3>
 <div id="menu-add-button" class="text-center offset-10 col-2">
-  <button class="btn btn-primary">
+  <button class="btn btn-primary" (click)="openAddMenuModal()">
     <span class="fa fa-plus"> </span>
     Add
   </button>
@@ -18,3 +18,4 @@
     </div>
   </div>
 </div>
+<app-add-menu #addMenu></app-add-menu>

@@ -11,8 +11,8 @@ export class MenuService {
 
   // Menu
 
-  addMenu(menu: Menu): Observable<any> {
-    return this.http.post<any>(window.location.origin + '/api/menu/', menu);
+  addMenu(menu: Menu): Observable<Menu> {
+    return this.http.post<Menu>(window.location.origin + '/api/menu/', menu);
   }
 
   getAllMenus(): Observable<Array<Menu>> {
