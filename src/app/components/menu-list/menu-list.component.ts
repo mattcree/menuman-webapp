@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { MenuService} from '../../services/menu.service';
 import {Menu} from '../../models/menu';
-import {AddMenuComponent} from '../add-menu/add-menu.component';
+import { AddMenuComponent } from '../add-menu/add-menu.component';
 
 @Component({
   selector: 'app-menu-list',

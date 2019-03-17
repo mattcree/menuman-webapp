@@ -19,6 +19,7 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { AddMenuComponent } from './components/add-menu/add-menu.component';
+import { EditMenuComponent } from './components/edit-menu/edit-menu.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddMenuComponent } from './components/add-menu/add-menu.component';
     LoginComponent,
     SignUpComponent,
     MenuListComponent,
-    AddMenuComponent
+    AddMenuComponent,
+    EditMenuComponent
   ],
   imports: [
     BrowserModule,
